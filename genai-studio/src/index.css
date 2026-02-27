@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 270 15% 6%;
+    --foreground: 0 0% 95%;
+
+    --card: 270 12% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 270 12% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 340 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 30% 18%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 270 15% 15%;
+    --muted-foreground: 270 10% 55%;
+
+    --accent: 280 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 15% 18%;
+    --input: 270 15% 18%;
+    --ring: 340 80% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 270 15% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 340 80% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 20% 14%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 270 15% 15%;
+    --sidebar-ring: 340 80% 55%;
+
+    --cinema-glow: 340 80% 55%;
+    --cinema-purple: 280 60% 50%;
+    --cinema-dark: 270 15% 4%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(270 15% 8%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(340 80% 55% / 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(340 80% 55% / 0.6);
+}
+
+/* Cinema gradient utility */
+.cinema-gradient {
+  background: linear-gradient(135deg, hsl(340 80% 55%), hsl(280 60% 50%));
+}
+
+.cinema-gradient-text {
+  background: linear-gradient(135deg, hsl(340 80% 55%), hsl(280 60% 50%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cinema-glow {
+  box-shadow: 0 0 40px hsl(340 80% 55% / 0.15), 0 0 80px hsl(280 60% 50% / 0.1);
+}
+
+/* Spotlight effect */
+.spotlight {
+  background: radial-gradient(ellipse at 50% 0%, hsl(340 80% 55% / 0.08) 0%, transparent 60%);
+}
+
+/* Glassmorphism utilities */
+.glass-sidebar {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+}
+
+.glass-content {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.glass-header {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(340 80% 55% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(340 80% 55% / 0.5);
+  }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
