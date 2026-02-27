@@ -1,0 +1,72 @@
+# =========================
+# Python / FastAPI
+# =========================
+
+# Virtual environments
+.venv/
+.venv311/
+env/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# FastAPI / Uvicorn logs
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Node / React
+# =========================
+
+# Node modules
+node_modules/
+
+# Production build
+frontend/build/
+frontend/dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Lock files (optional: keep if team project)
+# package-lock.json
+# yarn.lock
+
+# =========================
+# IDE / Editor
+# =========================
+
+.vscode/
+.idea/
+
+# =========================
+# OS files
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+# Testing / Coverage
+# =========================
+venv/
+node_modules/
+.coverage
+htmlcov/
+.pytest_cache/
+coverage/
