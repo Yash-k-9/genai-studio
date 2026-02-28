@@ -81,7 +81,8 @@ const Dashboard = ({ token, onLogout }: DashboardProps) => {
 
       const newProjectData: ProjectData = {
         title: "New Story",
-        storyline: generated.storyline,
+        storyline: generated.screenplay ?? generated.storyline,
+        screenplay: generated.screenplay ?? generated.storyline,
         characters: generated.characters,
         sound_design: generated.sound_design,
       };
@@ -304,7 +305,7 @@ const Dashboard = ({ token, onLogout }: DashboardProps) => {
                 <SoundDesignView scenes={content.sound_design} />
               )}
               {activeSection === "screenplay" && (
-                <Screenplay storyline={content?.storyline} />
+                <Screenplay screenplay={content?.screenplay ?? content?.storyline} />
               )}
             </div>
           )}

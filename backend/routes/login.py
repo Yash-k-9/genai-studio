@@ -3,7 +3,7 @@ from models.login import login
 from services.db_client import supabase
 import bcrypt
 router=APIRouter(prefix="/login",tags=["login"])
-@router.post("/")
+@router.post("")
 def login_user(user:login,response:Response):
     if not user.email or not user.password:
         raise HTTPException(status_code=400, detail="Email and password are required")

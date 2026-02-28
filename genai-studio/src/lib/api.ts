@@ -5,7 +5,8 @@ const API_BASE_URL = "http://localhost:8000";
 export interface ProjectData {
     id?: string;
     title?: string;
-    storyline: string;
+    storyline: string;   // mapped from backend 'screenplay' field
+    screenplay?: string; // same as storyline, kept for explicit access
     characters: any[];
     sound_design: any[];
 }
@@ -97,7 +98,7 @@ export const generateProject = async (story: string, useCase: string, language: 
         if (getMockMode()) {
             await new Promise(r => setTimeout(r, 2000));
             const mockResponse = {
-                storyline: mockGeneratedContent.screenplay || mockGeneratedContent.storyline,
+                screenplay: mockGeneratedContent.screenplay || mockGeneratedContent.storyline,
                 characters: mockGeneratedContent.characters,
                 sound_design: mockGeneratedContent.sound_design,
             };
@@ -121,6 +122,10 @@ export const generateProject = async (story: string, useCase: string, language: 
         // Map backend 'screenplay' to frontend 'storyline' expectation
         if (data.screenplay && !data.storyline) {
             data.storyline = data.screenplay;
+        }
+        // Keep screenplay accessible by its original field name too
+        if (data.storyline && !data.screenplay) {
+            data.screenplay = data.storyline;
         }
         console.log("Live API Response (generateProject):", data);
         return data;
